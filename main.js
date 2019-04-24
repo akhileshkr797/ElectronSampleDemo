@@ -38,11 +38,8 @@ function createWindow() {
 
     //WebContents Events
 
-
-
-
     //did-start-loading
-    mainWindow.webContents.on('did-start-loading', () => {
+    mainWindow.webContents.on('did-start-loading', event => {
         console.log('did-start-loading:', event.sender.webContents.browserWindowOptions.title)
     })
 
@@ -80,6 +77,8 @@ function createWindow() {
     mainWindow.webContents.on('unresponsive', event => {
         console.log('unresponsive:', event.sender.webContents.browserWindowOptions.title)
     })
+
+
 
 
 
