@@ -1,0 +1,19 @@
+{
+    "name": "electronsampledemo",
+    "version": "1.0.0",
+    "description": "Added appEvents and webContent Events",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/akhileshkr797/ElectronSampleDemo.git"
+    },
+    "author": "akhilesh",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/akhileshkr797/ElectronSampleDemo/issues"
+    },
+    "homepage": "https://github.com/akhileshkr797/ElectronSampleDemo#readme"
+}
