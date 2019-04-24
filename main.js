@@ -111,6 +111,51 @@ function openAboutWindow() {
         height: 200,
         title: 'aboutWindow'
     })
+
+    //WebContents Events
+
+    //did-start-loading
+    aboutWindow.webContents.on('did-start-loading', event => {
+        console.log('did-start-loading:', event.sender.webContents.browserWindowOptions.title)
+    })
+
+    //did-stop-loading
+    aboutWindow.webContents.on('did-stop-loading', event => {
+        console.log('did-stop-loading:', event.sender.webContents.browserWindowOptions.title)
+    })
+
+    //dom-ready
+    aboutWindow.webContents.on('dom-ready', event => {
+        console.log('dom-ready:', event.sender.webContents.getTitle())
+    })
+
+    //did-finish-load
+    aboutWindow.webContents.on('did-finish-load', event => {
+        console.log('did-finish-load:', event.sender.webContents.getTitle())
+    })
+
+    //did-fail-load
+    aboutWindow.webContents.on('did-fail-load', event => {
+        console.log('did-fail-load', event.sender.webContents.getTitle())
+    })
+
+    //page-favicon-updated
+    aboutWindow.webContents.on('page-favicon-updated', event => {
+        console.log('page-favicon-updated:', event.sender.webContents.getTitle())
+    })
+
+    //responsive
+    aboutWindow.webContents.on('responsive', event => {
+        console.log('responsive:', event.sender.webContents.browserWindowOptions.title)
+    })
+
+    //unresponsive
+    aboutWindow.webContents.on('unresponsive', event => {
+        console.log('unresponsive:', event.sender.webContents.browserWindowOptions.title)
+    })
+
+
+    //loadinf file
     aboutWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'about.html'),
         protocol: 'file:',
