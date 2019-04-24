@@ -1,5 +1,5 @@
 const electron = require('electron')
-const { app, BrowserWindow, Menu } = electron
+const { app, BrowserWindow, Menu, ipcMain } = electron
 const path = require('path')
 const url = require('url')
 
@@ -36,7 +36,13 @@ function createWindow() {
     })
 
 
-    mainWindow.webContents.on('did-start-loading', event => {
+    //WebContents Events
+
+
+
+
+    //did-start-loading
+    mainWindow.webContents.on('did-start-loading', () => {
         console.log('did-start-loading:', event.sender.webContents.browserWindowOptions.title)
     })
 
@@ -65,6 +71,19 @@ function createWindow() {
         console.log('page-favicon-updated:', event.sender.webContents.getTitle())
     })
 
+    //responsive
+    mainWindow.webContents.on('responsive', event => {
+        console.log('responsive:', event.sender.webContents.browserWindowOptions.title)
+    })
+
+    //unresponsive
+    mainWindow.webContents.on('unresponsive', event => {
+        console.log('unresponsive:', event.sender.webContents.browserWindowOptions.title)
+    })
+
+
+
+    //loading files
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'index.html'),
         protocol: 'file:',
