@@ -1,5 +1,5 @@
 const electron = require('electron')
-const { app, BrowserWindow, Menu, ipcMain } = electron
+const { app, BrowserWindow, Menu, globalShortcut } = electron
 const path = require('path')
 const url = require('url')
 
@@ -30,8 +30,8 @@ let mainWindow
 function createWindow() {
 
     mainWindow = new BrowserWindow({
-        width: 900,
-        height: 500,
+        width: 1200,
+        height: 800,
         title: 'mainWindow'
     })
 
@@ -97,6 +97,11 @@ function createWindow() {
 
         console.log('close')
     })
+
+    //ctrl+F functionality
+    globalShortcut.register('CommandOrControl+F', () => {
+        mainWindow.webContents.send('on-find');
+    });
 }
 
 //about Window
@@ -107,8 +112,8 @@ function openAboutWindow() {
         parent: mainWindow,
         modal: true,
         show: false,
-        width: 400,
-        height: 200,
+        width: 900,
+        height: 700,
         title: 'aboutWindow'
     })
 
