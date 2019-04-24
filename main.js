@@ -30,7 +30,7 @@ let mainWindow
 function createWindow() {
 
     mainWindow = new BrowserWindow({
-        width: 700,
+        width: 900,
         height: 500,
         title: 'mainWindow'
     })
@@ -108,7 +108,8 @@ function openAboutWindow() {
         modal: true,
         show: false,
         width: 400,
-        height: 200
+        height: 200,
+        title: 'aboutWindow'
     })
     aboutWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'about.html'),
