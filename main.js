@@ -172,6 +172,11 @@ function openAboutWindow() {
 
         console.log('ready-to-show')
     })
+
+    //ctrl+F functionality
+    globalShortcut.register('CommandOrControl+F', () => {
+        aboutWindow.webContents.send('on-find');
+    });
 }
 
 // App Events
