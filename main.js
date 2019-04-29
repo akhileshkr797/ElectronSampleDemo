@@ -114,7 +114,9 @@ function openAboutWindow() {
         show: false,
         width: 900,
         height: 700,
-        title: 'aboutWindow'
+        title: 'aboutWindow',
+        minimizable:false,
+        maximizable:false
     })
 
     //WebContents Events
